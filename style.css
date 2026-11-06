@@ -1,0 +1,111 @@
+/* ===== Couleurs modifiables à un seul endroit ===== */
+:root {
+  --fond: #f2f2f2;    /* couleur de fond de toutes les pages */
+  --titres: #000C3B;  /* complémentaire de --fond (255 - R, 255 - G, 255 - B) */
+  --texte: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--fond);
+  color: var(--texte);
+  font-family: "Iosevka NFM", monospace;
+  line-height: 1.5;
+}
+
+/* Contenu centré (les bandeaux restent en pleine largeur) */
+main, header {
+  max-width: 64ch;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+/* ===== Titres ===== */
+h1, h2, h3 {
+  color: var(--titres);
+  margin: 0.8em 0 0.4em;
+}
+
+h1 { font-size: 18px; font-weight: bold; }
+h2 { font-size: 16px; font-weight: normal; }
+h3 { font-size: 14px; font-style: italic; }
+
+/* Le titre h1 est un lien vers l'accueil : il garde son style */
+h1 a, h1 a:visited, h1 a:active {
+  color: var(--titres);
+  text-decoration: none;
+}
+
+p { margin-bottom: 1em; }
+
+/* ===== Liens ===== */
+a:visited,
+a:active {
+  color: fuchsia;
+}
+
+/* ===== Image bandeau (page d'accueil) ===== */
+.bandeau {
+  display: block;
+  width: 100%;      /* touche les 2 bords */
+  height: 428px;    /* hauteur fixée */
+  object-fit: cover;
+}
+
+/* ===== Images des hobbies : centrées + légende en bas à droite ===== */
+figure {
+  display: table;   /* la figure s'adapte à la largeur de l'image */
+  margin: 1em auto; /* centrée */
+}
+
+figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+figcaption {
+  text-align: right;
+  font-size: 12px;
+}
+
+/* Vidéo centrée */
+video {
+  display: block;
+  max-width: 100%;
+  margin: 1em auto;
+}
+
+/* ===== Boutons de navigation (ul > li) ===== */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 1em;
+}
+
+nav li a,
+nav li a:visited,
+nav li a:active {
+  display: block;
+  width: 120px;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  background: black;
+  color: white;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+nav li a:hover {
+  background: var(--titres);
+  color: var(--fond);
+}
